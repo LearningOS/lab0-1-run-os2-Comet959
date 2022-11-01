@@ -69,7 +69,7 @@ pub extern "C" fn _start(argc: usize, argv: usize) -> ! {
     exit(main(argc, v.as_slice()));
 }
 
-#[linkage = "weak"]
+#[linkage = "weak"] // 若链接, 找不到其他main时才使用该函数
 #[no_mangle]
 fn main(_argc: usize, _argv: &[&str]) -> i32 {
     panic!("Cannot find main!");

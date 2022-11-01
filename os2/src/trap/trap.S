@@ -37,7 +37,7 @@ __alltraps:
     mv a0, sp
     call trap_handler
 
-__restore:
+__restore: # 恢复上下文
     # case1: start running app by __restore
     # case2: back to U after handling trap
     mv sp, a0
@@ -61,4 +61,4 @@ __restore:
     addi sp, sp, 34*8
     # now sp->kernel stack, sscratch->user stack
     csrrw sp, sscratch, sp
-    sret
+    sret # 返回U

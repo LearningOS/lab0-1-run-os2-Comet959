@@ -8,7 +8,7 @@ use riscv::register::{
     stval, stvec,
 };
 
-core::arch::global_asm!(include_str!("trap.S"));
+core::arch::global_asm!(include_str!("trap.S")); // 引入
 
 pub fn init() {
     extern "C" {
